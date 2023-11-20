@@ -259,9 +259,10 @@ packages:
   retrive_device_info:
     dependency: "direct main"
     description:
-      path: "D:\\Flutter Muthoot Cash\\retrieve_device_info\\retrive_device_info"
-      relative: false
-    source: path
+      name: retrive_device_info
+      sha256: "6632ae9c8cbb1c00779637b9526da21ece49f286f40f76c5ecdc5c60a90a1336"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.1-dev.1"
   sky_engine:
     dependency: transitive
@@ -344,10 +345,10 @@ packages:
     dependency: transitive
     description:
       name: web
-      sha256: afe077240a270dcfd2aafe77602b4113645af95d0ad31128cc02bce5ac5d5152
+      sha256: edc8a9573dd8c5a83a183dae1af2b6fd4131377404706ca4e5420474784906fa
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0"
+    version: "0.4.0"
   win32:
     dependency: transitive
     description:
