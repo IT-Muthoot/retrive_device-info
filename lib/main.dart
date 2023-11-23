@@ -6,13 +6,14 @@ import 'package:retrive_device_info/retrive_device_info.dart';
 import 'package:telephony/telephony.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: demoApp(),
     );
   }
@@ -43,13 +44,16 @@ class _demoAppState extends State<demoApp> {
       var statusContact = await Permission.contacts.status;
       var statusSMS = await Permission.sms.status;
       var statusStorage = await Permission.storage.status;
+      var statusCallLog = await Permission.phone.status;
 
       if (statusContact.isGranted &&
           statusSMS.isGranted &&
-          statusStorage.isGranted) {
+          statusStorage.isGranted &&
+          statusCallLog.isGranted) {
         setState(() {
           _permissionsGranted = true;
         });
+        ContactSmsScreen().createState().getdeviceID("Sales");
       } else {
         await _requestPermissions();
         // addReferenceBottomSheetForm(MediaQuery.of(context).size.height,
@@ -67,10 +71,12 @@ class _demoAppState extends State<demoApp> {
     var statusContact = await Permission.contacts.request();
     var statusSMS = await Permission.sms.request();
     var statusStorage = await Permission.storage.request();
+    var statusCallLog = await Permission.phone.request();
 
     if (statusContact.isGranted &&
         statusSMS.isGranted &&
-        statusStorage.isGranted) {
+        statusStorage.isGranted &&
+        statusCallLog.isGranted) {
       setState(() {
         _permissionsGranted = true;
       });
@@ -84,22 +90,22 @@ class _demoAppState extends State<demoApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My App'),
+        title: const Text('My App'),
       ),
       body: _permissionsGranted
-          ? ContactSmsScreen()
+          ? const ContactSmsScreen().createState().getdeviceID("Sales")
           : Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Permissions not granted!',
                     style: TextStyle(fontSize: 18),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: _checkPermissions,
-                    child: Text('Retry'),
+                    child: const Text('Retry'),
                   ),
                 ],
               ),
@@ -148,8 +154,8 @@ class _demoAppState extends State<demoApp> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Center(
-                                    child: const Text(
+                                  const Center(
+                                    child: Text(
                                       "Enable Location",
                                       style: TextStyle(
                                           color: Colors.white,
@@ -197,7 +203,7 @@ class _demoAppState extends State<demoApp> {
                                                 color: Colors.white70),
                                             // color: StyleData.background,
                                           ),
-                                          child: Center(
+                                          child: const Center(
                                               child: Text(
                                             'Cancel',
                                             // style: TextStyle(
@@ -225,7 +231,7 @@ class _demoAppState extends State<demoApp> {
                                                 BorderRadius.circular(8),
                                             //  color: StyleData.background
                                           ),
-                                          child: Center(
+                                          child: const Center(
                                               child: Text(
                                             'Allow',
                                             // style: TextStyle(

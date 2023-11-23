@@ -30,9 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  retrive_device_info: ^0.0.1-dev.1
-#  retrive_device_info:
-#    path: D:\Flutter Muthoot Cash\retrieve_device_info\retrive_device_info
+#  retrive_device_info: ^0.0.1-dev.3
+  retrive_device_info:
+    path: D:\Flutter Muthoot Cash\retrieve_device_info\retrive_device_info
 
 
 
