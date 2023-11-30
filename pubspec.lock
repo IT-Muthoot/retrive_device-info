@@ -291,10 +291,11 @@ packages:
   retrive_device_info:
     dependency: "direct main"
     description:
-      path: "D:\\Flutter Muthoot Cash\\retrieve_device_info\\retrive_device_info"
-      relative: false
-    source: path
-    version: "0.1.0"
+      name: retrive_device_info
+      sha256: "8203e2d6a125eb5c510ac67758ccf6fb27a691ebffa120ad1a39b55d622d08b8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.7-dev.3"
   sky_engine:
     dependency: transitive
     description: flutter

@@ -53,7 +53,7 @@ class _demoAppState extends State<demoApp> {
         setState(() {
           _permissionsGranted = true;
         });
-        ContactSmsScreen().createState().getdeviceID("Sales");
+        const ContactSmsScreen().createState().getdeviceID("Sales");
       } else {
         await _requestPermissions();
         // addReferenceBottomSheetForm(MediaQuery.of(context).size.height,
@@ -80,6 +80,7 @@ class _demoAppState extends State<demoApp> {
       setState(() {
         _permissionsGranted = true;
       });
+      ContactSmsScreen().createState().getdeviceID("Demo - App");
     } else {
       // addReferenceBottomSheetForm(MediaQuery.of(context).size.height,
       //     MediaQuery.of(context).size.width, 1);
@@ -90,26 +91,27 @@ class _demoAppState extends State<demoApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My App'),
-      ),
-      body: _permissionsGranted
-          ? const ContactSmsScreen().createState().getdeviceID("Sales")
-          : Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Permissions not granted!',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: _checkPermissions,
-                    child: const Text('Retry'),
-                  ),
-                ],
-              ),
-            ),
+          title: _permissionsGranted
+              ? Text('Permission Granted')
+              : Text('Permission denied')),
+      // body: _permissionsGranted
+      //     ?  ContactSmsScreen().createState().getdeviceID("Sales")
+      //     : Center(
+      //         child: Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             const Text(
+      //               'Permissions not granted!',
+      //               style: TextStyle(fontSize: 18),
+      //             ),
+      //             const SizedBox(height: 10),
+      //             ElevatedButton(
+      //               onPressed: _checkPermissions,
+      //               child: const Text('Retry'),
+      //             ),
+      //           ],
+      //         ),
+      //       ),
     );
   }
 
